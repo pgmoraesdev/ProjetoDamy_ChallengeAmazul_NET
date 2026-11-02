@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gustm\\OneDrive\\Desktop\\GIT-FIAP\\.2TDSPR\\SPRINT\\SPRINT1\\DOTNET\\CHALLENGE_AMAZUL_.NET\\ProjetoDamyNuclearEdu\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FBDC78A9-E8C1-44E9-ABA5-B3B69E3A6E16}|ProjetoDamyNuclearEdu.csproj|c:\\users\\gustm\\onedrive\\desktop\\git-fiap\\.2tdspr\\sprint\\sprint1\\dotnet\\challenge_amazul_.net\\projetodamynuclearedu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBDC78A9-E8C1-44E9-ABA5-B3B69E3A6E16}|ProjetoDamyNuclearEdu.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 343,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\gustm\\OneDrive\\Desktop\\GIT-FIAP\\.2TDSPR\\SPRINT\\SPRINT1\\DOTNET\\CHALLENGE_AMAZUL_.NET\\ProjetoDamyNuclearEdu\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\gustm\\OneDrive\\Desktop\\GIT-FIAP\\.2TDSPR\\SPRINT\\SPRINT1\\DOTNET\\CHALLENGE_AMAZUL_.NET\\ProjetoDamyNuclearEdu\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-02T20:25:44.832Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
