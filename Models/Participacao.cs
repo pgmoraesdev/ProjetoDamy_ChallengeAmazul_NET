@@ -14,7 +14,6 @@ namespace ProjetoDamyNuclearEdu.Models
         public int PontuacaoObtida { get; private set; }
         public DateTime DataHoraEntrada { get; private set; }
         public string StatusParticipacao { get; private set; }
-
         protected Participacao() { }
 
         public Participacao(string nomeUsuario, string nomeSessao, int pontuacaoObtida, DateTime dataHoraEntrada, string statusParticipacao)
