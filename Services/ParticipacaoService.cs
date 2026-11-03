@@ -42,4 +42,9 @@ public sealed class ParticipacaoService
 
         return encontradas;
     }
+
+    public List<Participacao> Listar()
+    {
+        return _repository.Listar();
+    }
 }
