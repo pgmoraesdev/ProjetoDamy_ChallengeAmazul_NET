@@ -21,8 +21,11 @@ namespace ProjetoDamyNuclearEdu.Models
             if (string.IsNullOrWhiteSpace(nomeUsuario))
                 throw new ArgumentException("O nome do usuário deve ser informado.");
 
+            if (!NomeValido(nomeUsuario))
+                throw new ArgumentException("O nome do usuário deve conter pelo menos uma letra.");
+
             if (string.IsNullOrWhiteSpace(nomeSessao))
-                throw new ArgumentException("O nome da sessão deve ser informado.");            
+                throw new ArgumentException("O nome da sessão deve ser informado.");
 
             if (pontuacaoObtida < 0)
                 throw new ArgumentException("A pontuação não pode ser negativa.");
@@ -42,6 +45,20 @@ namespace ProjetoDamyNuclearEdu.Models
             PontuacaoObtida = pontuacaoObtida;
             DataHoraEntrada = dataHoraEntrada;
             StatusParticipacao = statusParticipacao;
+        }
+
+        public static bool NomeValido(string? nome)
+        {
+            if (string.IsNullOrWhiteSpace(nome))
+                return false;
+
+            foreach (char caractere in nome)
+            {
+                if (char.IsLetter(caractere))
+                    return true;
+            }
+
+            return false;
         }
     }
 }

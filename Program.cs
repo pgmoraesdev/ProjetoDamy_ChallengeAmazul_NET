@@ -40,13 +40,17 @@ internal static class Program
 
                         do
                         {
+                            Console.WriteLine();
                             Console.Write("Nome do usuário: ");
                             nomeUsuario = Console.ReadLine();
 
                             if (string.IsNullOrWhiteSpace(nomeUsuario))
                                 Console.WriteLine("Informe o nome do usuário.");
+
+                            if (!Participacao.NomeValido(nomeUsuario))
+                                Console.WriteLine("Insira pelo menos uma letra.");
                         }
-                        while (string.IsNullOrWhiteSpace(nomeUsuario));
+                        while (string.IsNullOrWhiteSpace(nomeUsuario) || !Participacao.NomeValido(nomeUsuario));
 
                         string nomeSessao;
 
@@ -57,11 +61,14 @@ internal static class Program
 
                             if (string.IsNullOrWhiteSpace(nomeSessao))
                                 Console.WriteLine("Informe o nome da sessão.");
+
+                            if (!Participacao.NomeValido(nomeSessao))
+                                Console.WriteLine("Insira pelo menos uma letra.");
                         }
-                        while (string.IsNullOrWhiteSpace(nomeSessao));
+                        while (string.IsNullOrWhiteSpace(nomeSessao) || !Participacao.NomeValido(nomeSessao));
 
                         var nova = service.Cadastrar(nomeUsuario.Trim(), nomeSessao.Trim());
-
+                        Console.WriteLine();
                         Console.WriteLine($"Participação {nova.Id} cadastrada com zero pontos.");
                         break;
                     case "2":
@@ -83,9 +90,11 @@ internal static class Program
                         while (string.IsNullOrWhiteSpace(nomeBusca));
 
                         var participacoes = service.BuscarPorUsuario(nomeBusca.Trim());
+                        Console.WriteLine();
                         Exibir(participacoes);
                         break;
                     default:
+                        Console.WriteLine();
                         Console.WriteLine("Opção inválida. Escolha uma das opções do menu.");
                         break;
                 }

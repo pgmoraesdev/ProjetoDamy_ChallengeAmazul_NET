@@ -41,26 +41,34 @@
   },
   {
     "id": 6,
-    "nomeUsuario": "Paulo Sousa",
-    "nomeSessao": "Quiz sobre tecnologia",
+    "nomeUsuario": "a1",
+    "nomeSessao": "a1",
     "pontuacaoObtida": 0,
-    "dataHoraEntrada": "2026-11-02T23:25:24.6834755-03:00",
+    "dataHoraEntrada": "2026-11-02T23:35:40.1948599-03:00",
     "statusParticipacao": "aguardando"
   },
   {
     "id": 7,
-    "nomeUsuario": "asd",
-    "nomeSessao": "33",
+    "nomeUsuario": "a",
+    "nomeSessao": "b",
     "pontuacaoObtida": 0,
-    "dataHoraEntrada": "2026-11-02T23:25:47.23406-03:00",
+    "dataHoraEntrada": "2026-11-02T23:36:09.1148162-03:00",
     "statusParticipacao": "aguardando"
   },
   {
     "id": 8,
-    "nomeUsuario": "-1",
-    "nomeSessao": "-123",
+    "nomeUsuario": "a",
+    "nomeSessao": "f",
     "pontuacaoObtida": 0,
-    "dataHoraEntrada": "2026-11-02T23:25:58.9219256-03:00",
+    "dataHoraEntrada": "2026-11-02T23:37:31.1890883-03:00",
+    "statusParticipacao": "aguardando"
+  },
+  {
+    "id": 9,
+    "nomeUsuario": "a",
+    "nomeSessao": "s",
+    "pontuacaoObtida": 0,
+    "dataHoraEntrada": "2026-11-02T23:37:57.3582605-03:00",
     "statusParticipacao": "aguardando"
   }
 ]
