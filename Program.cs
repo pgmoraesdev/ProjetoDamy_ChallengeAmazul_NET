@@ -13,9 +13,12 @@ internal static class Program
 
         Console.WriteLine("DAMY — Participações em jogos educativos sobre tecnologia nuclear");
         Console.WriteLine("Cadastre novas participações e seja desafiado contra outros jogadores em conhecimentos sobre tecnologia nuclear!");
+        Console.WriteLine($"---------");
+        Console.WriteLine($"Arquivo de dados: {caminho}");
+        Console.WriteLine($"---------");
         while (true)
         {
-            Console.WriteLine($"Arquivo de dados: {caminho}");
+            
             Console.WriteLine("\n1 - Cadastrar participação");
             Console.WriteLine("2 - Listar todas as participações");
             Console.WriteLine("3 - Buscar por nome do usuário");

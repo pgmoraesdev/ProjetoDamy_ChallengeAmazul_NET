@@ -1,18 +1,66 @@
 ﻿[
   {
     "id": 1,
-    "nomeUsuario": "1",
-    "nomeSessao": "1",
-    "pontuacaoObtida": 0,
-    "dataHoraEntrada": "2026-11-02T23:17:04.5859483-03:00",
-    "statusParticipacao": "aguardando"
+    "nomeUsuario": "Ana Silva",
+    "nomeSessao": "Quiz sobre medicina nuclear",
+    "pontuacaoObtida": 80,
+    "dataHoraEntrada": "2026-11-02T19:00:00-03:00",
+    "statusParticipacao": "concluida"
   },
   {
     "id": 2,
-    "nomeUsuario": "2",
-    "nomeSessao": "2",
+    "nomeUsuario": "Bruno Souza",
+    "nomeSessao": "Quiz sobre medicina nuclear",
+    "pontuacaoObtida": 50,
+    "dataHoraEntrada": "2026-11-02T19:02:00-03:00",
+    "statusParticipacao": "jogando"
+  },
+  {
+    "id": 3,
+    "nomeUsuario": "Carla Oliveira",
+    "nomeSessao": "Quiz sobre conserva\u00E7\u00E3o de alimentos",
     "pontuacaoObtida": 0,
-    "dataHoraEntrada": "2026-11-02T23:19:24.1270467-03:00",
+    "dataHoraEntrada": "2026-11-02T19:05:00-03:00",
+    "statusParticipacao": "aguardando"
+  },
+  {
+    "id": 4,
+    "nomeUsuario": "Diego Santos",
+    "nomeSessao": "Quiz sobre energia nuclear",
+    "pontuacaoObtida": 30,
+    "dataHoraEntrada": "2026-11-02T19:10:00-03:00",
+    "statusParticipacao": "abandonada"
+  },
+  {
+    "id": 5,
+    "nomeUsuario": "Elisa Costa",
+    "nomeSessao": "Jogo da mem\u00F3ria sobre aplica\u00E7\u00F5es industriais",
+    "pontuacaoObtida": 0,
+    "dataHoraEntrada": "2026-11-02T19:15:00-03:00",
+    "statusParticipacao": "concluida"
+  },
+  {
+    "id": 6,
+    "nomeUsuario": "Paulo Sousa",
+    "nomeSessao": "Quiz sobre tecnologia",
+    "pontuacaoObtida": 0,
+    "dataHoraEntrada": "2026-11-02T23:25:24.6834755-03:00",
+    "statusParticipacao": "aguardando"
+  },
+  {
+    "id": 7,
+    "nomeUsuario": "asd",
+    "nomeSessao": "33",
+    "pontuacaoObtida": 0,
+    "dataHoraEntrada": "2026-11-02T23:25:47.23406-03:00",
+    "statusParticipacao": "aguardando"
+  },
+  {
+    "id": 8,
+    "nomeUsuario": "-1",
+    "nomeSessao": "-123",
+    "pontuacaoObtida": 0,
+    "dataHoraEntrada": "2026-11-02T23:25:58.9219256-03:00",
     "statusParticipacao": "aguardando"
   }
 ]
