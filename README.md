@@ -8,6 +8,15 @@ O projeto Damy propõe uma plataforma educativa que utiliza jogos para aproximar
 
 O propósito é estimular a curiosidade, apresentar aplicações presentes no cotidiano e incentivar a aprendizagem. Nas atividades competitivas, os jogadores poderão comparar seu desempenho a partir das pontuações obtidas.
 
+## Integrantes — 2TDSPR
+
+| Nome | RM |
+|---|---|
+| Luana Alves de Oliveira | 566621 |
+| Isabely Marques da Silva | 566663 |
+| Mateus Ribeiro Azevedo | 566630 |
+| Paulo Gustavo Moraes de Sousa | 568580 |
+
 ## O que foi desenvolvido nesta sprint
 
 Nesta Sprint Flash, desenvolvemos uma prova de conceito em **C#/.NET**, utilizando uma aplicação console no Visual Studio.
@@ -23,14 +32,28 @@ A entidade utilizada é **Participação**, com os seguintes atributos:
 - Data e horário de entrada.
 - Status da participação.
 
-## Integrantes — 2TDSPR
+## Arquitetura e organização
 
-| Nome | RM |
-|---|---|
-| Luana Alves de Oliveira | 566621 |
-| Isabely Marques da Silva | 566663 |
-| Mateus Ribeiro Azevedo | 566630 |
-| Paulo Gustavo Moraes de Sousa | 568580 |
+O projeto está organizado separando os dados, as regras de negócio, a persistência e a interação pelo console:
+
+```text
+├── Models/
+│   └── Participacao.cs
+├── Repository/
+│   └── ParticipacaoRepository.cs
+├── dados/
+│   └── participacoes.json
+├── ParticipacaoService.cs
+└── Program.cs
+```
+
+- **Models:** contém a entidade e suas validações.
+- **Repository:** realiza a leitura e a gravação do JSON.
+- **ParticipacaoService:** aplica as regras de negócio e organiza as operações.
+- **Program:** apresenta o menu e recebe as informações do usuário.
+- **dados:** armazena os registros entre execuções.
+
+A pasta `dados` e o arquivo JSON são criados automaticamente após o primeiro cadastro.
 
 ## Funcionalidades
 
