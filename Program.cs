@@ -16,6 +16,15 @@ internal static class Program
                 Console.WriteLine("Até a próxima!");
                 return;
             }
-        }
+            
+            switch (opcao.Trim())
+            {
+                case "1":                    
+                    Console.WriteLine($"Cadastrando nova participação");
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida. Escolha uma das opções do menu.");
+                    break;
+            }
     }
 }

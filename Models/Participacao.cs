@@ -1,4 +1,6 @@
-﻿namespace ProjetoDamyNuclearEdu.Models
+﻿using System.Text.Json.Serialization;
+
+namespace ProjetoDamyNuclearEdu.Models
 {
     public class Participacao
     {
@@ -10,19 +12,17 @@
         public string StatusParticipacao { get; private set; }
         protected Participacao() { }
 
-        public Participacao(string nomeUsuario, string nomeSessao, int pontuacaoObtida, DateTimeOffset dataHoraEntrada, string statusParticipacao)
+        [JsonConstructor]
+        public Participacao(int id, string nomeUsuario, string nomeSessao, int pontuacaoObtida, DateTimeOffset dataHoraEntrada, string statusParticipacao)
         {
-            if (Id <= 0)
+            if (id <= 0)
                 throw new ArgumentException("Os identificadores devem ser números inteiros positivos.");
 
-            if (NomeUsuario == "" || NomeUsuario == null)
+            if (string.IsNullOrWhiteSpace(nomeUsuario))
                 throw new ArgumentException("O nome do usuário deve ser informado.");
 
-            if (NomeSessao == "" || NomeSessao == null)
-                throw new ArgumentException("O nome do sessão deve ser informad.");
-
-            if (Id <= 0)
-                throw new ArgumentException("Os identificadores devem ser números inteiros positivos.");
+            if (string.IsNullOrWhiteSpace(nomeSessao))
+                throw new ArgumentException("O nome da sessão deve ser informado.");            
 
             if (pontuacaoObtida < 0)
                 throw new ArgumentException("A pontuação não pode ser negativa.");
@@ -36,6 +36,7 @@
             if (statusParticipacao == "aguardando" && pontuacaoObtida != 0)
                 throw new ArgumentException("Uma participação aguardando deve ter zero pontos.");
 
+            Id = id;
             NomeUsuario = nomeUsuario;
             NomeSessao = nomeSessao;
             PontuacaoObtida = pontuacaoObtida;
