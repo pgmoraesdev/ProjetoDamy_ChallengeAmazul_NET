@@ -23,14 +23,13 @@ public sealed class ParticipacaoRepository
         if (!File.Exists(_caminho)) return [];
 
         var json = File.ReadAllText(_caminho, Encoding.UTF8);
-        var participacoes = JsonSerializer.Deserialize<List<Participacao>>(json, _opcoes)
-            ?? throw new InvalidDataException("O arquivo deve conter uma lista de participações.");
+        var participacoes = JsonSerializer.Deserialize<List<Participacao>>(json, _opcoes) ??
+            throw new InvalidDataException("O arquivo deve conter uma lista de participações.");
 
         if (participacoes.Any(p => p is null))
             throw new InvalidDataException("O arquivo contém um registro vazio.");
 
-        if (participacoes.GroupBy(p => p.Id).Any(g => g.Count() > 1)
-            || participacoes.GroupBy(p => (p.NomeUsuario, p.NomeSessao)).Any(g => g.Count() > 1))
+        if (participacoes.GroupBy(p => p.Id).Any(g => g.Count() > 1) || participacoes.GroupBy(p => (p.NomeUsuario, p.NomeSessao)).Any(g => g.Count() > 1))
             throw new InvalidDataException("Os registros do arquivo violam as regras de participação.");
 
         return participacoes;

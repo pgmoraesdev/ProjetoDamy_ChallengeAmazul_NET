@@ -24,4 +24,22 @@ public sealed class ParticipacaoService
         _repository.Salvar(participacoes);
         return participacao;
     }
+
+    public List<Participacao> BuscarPorUsuario(string nomeUsuario)
+    {
+        if (string.IsNullOrWhiteSpace(nomeUsuario))
+            throw new ArgumentException("Informe o nome do usuário.");
+
+        var encontradas = new List<Participacao>();
+
+        foreach (var participacao in _repository.Listar())
+        {
+            if (string.Equals(participacao.NomeUsuario, nomeUsuario.Trim(), StringComparison.OrdinalIgnoreCase))
+            {
+                encontradas.Add(participacao);
+            }
+        }
+
+        return encontradas;
+    }
 }

@@ -1,12 +1,20 @@
-﻿namespace ProjetoDamyNuclearEdu;
+﻿using ProjetoDamyNuclearEdu.Repository;
+
+namespace ProjetoDamyNuclearEdu;
+
 internal static class Program
 {
     private static void Main()
     {
+        var caminho = Path.Combine(Environment.CurrentDirectory, "dados", "participacoes.json");
+        var service = new ParticipacaoService(new ParticipacaoRepository(caminho));
+
         Console.WriteLine("DAMY — Participações em jogos educativos sobre tecnologia nuclear");
         while (true)
         {
             Console.WriteLine("\n1 - Cadastrar participação");
+            Console.WriteLine("2 - Listar todas as participações");
+            Console.WriteLine("3 - Buscar por ID do jogador");
             Console.WriteLine("0 - Sair");
             Console.Write("Opção: ");
             var opcao = Console.ReadLine();
@@ -16,15 +24,44 @@ internal static class Program
                 Console.WriteLine("Até a próxima!");
                 return;
             }
-            
+
             switch (opcao.Trim())
             {
-                case "1":                    
-                    Console.WriteLine($"Cadastrando nova participação");
+                case "1":
+                    string nomeUsuario;
+
+                    do
+                    {
+                        Console.Write("Nome do usuário: ");
+                        nomeUsuario = Console.ReadLine();
+
+                        if (string.IsNullOrWhiteSpace(nomeUsuario))
+                            Console.WriteLine("Informe o nome do usuário.");
+                    }
+                    while (string.IsNullOrWhiteSpace(nomeUsuario));
+
+                    string nomeSessao;
+
+                    do
+                    {
+                        Console.Write("Nome da sessão educativa: ");
+                        nomeSessao = Console.ReadLine();
+
+                        if (string.IsNullOrWhiteSpace(nomeSessao))
+                            Console.WriteLine("Informe o nome da sessão.");
+                    }
+                    while (string.IsNullOrWhiteSpace(nomeSessao));
+
+                    var nova = service.Cadastrar(nomeUsuario.Trim(), nomeSessao.Trim());
+
+                    Console.WriteLine($"Participação {nova.Id} cadastrada com zero pontos.");
                     break;
                 default:
                     Console.WriteLine("Opção inválida. Escolha uma das opções do menu.");
                     break;
             }
+
+        }
+
     }
 }
