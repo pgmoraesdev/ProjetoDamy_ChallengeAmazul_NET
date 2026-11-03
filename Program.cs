@@ -7,13 +7,15 @@ internal static class Program
 {
     private static void Main()
     {
-        var caminho = Path.Combine(Environment.CurrentDirectory, "dados", "participacoes.json");
+
+        var caminho = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory,"..", "..", "..", "dados", "participacoes.json"));
         var service = new ParticipacaoService(new ParticipacaoRepository(caminho));
 
         Console.WriteLine("DAMY — Participações em jogos educativos sobre tecnologia nuclear");
         Console.WriteLine("Cadastre novas participações e seja desafiado contra outros jogadores em conhecimentos sobre tecnologia nuclear!");
         while (true)
         {
+            Console.WriteLine($"Arquivo de dados: {caminho}");
             Console.WriteLine("\n1 - Cadastrar participação");
             Console.WriteLine("2 - Listar todas as participações");
             Console.WriteLine("3 - Buscar por nome do usuário");
@@ -84,6 +86,10 @@ internal static class Program
                         Console.WriteLine("Opção inválida. Escolha uma das opções do menu.");
                         break;
                 }
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             catch (System.Text.Json.JsonException)
             {

@@ -1,0 +1,18 @@
+﻿[
+  {
+    "id": 1,
+    "nomeUsuario": "1",
+    "nomeSessao": "1",
+    "pontuacaoObtida": 0,
+    "dataHoraEntrada": "2026-11-02T23:17:04.5859483-03:00",
+    "statusParticipacao": "aguardando"
+  },
+  {
+    "id": 2,
+    "nomeUsuario": "2",
+    "nomeSessao": "2",
+    "pontuacaoObtida": 0,
+    "dataHoraEntrada": "2026-11-02T23:19:24.1270467-03:00",
+    "statusParticipacao": "aguardando"
+  }
+]
