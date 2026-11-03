@@ -1,4 +1,5 @@
-﻿using ProjetoDamyNuclearEdu.Repository;
+﻿using ProjetoDamyNuclearEdu.Models;
+using ProjetoDamyNuclearEdu.Repository;
 
 namespace ProjetoDamyNuclearEdu;
 
@@ -56,6 +57,27 @@ internal static class Program
 
                     Console.WriteLine($"Participação {nova.Id} cadastrada com zero pontos.");
                     break;
+                case "2":
+                    Exibir(service.Listar());
+                    break;
+                case "3":
+                    string nomeBusca;
+
+                    do
+                    {
+                        Console.Write("Nome do usuário: ");
+                        nomeBusca = Console.ReadLine();
+
+                        if (string.IsNullOrWhiteSpace(nomeBusca))
+                        {
+                            Console.WriteLine("Informe o nome do usuário.");
+                        }
+                    }
+                    while (string.IsNullOrWhiteSpace(nomeBusca));
+
+                    var participacoes = service.BuscarPorUsuario(nomeBusca.Trim());
+                    Exibir(participacoes);
+                    break;
                 default:
                     Console.WriteLine("Opção inválida. Escolha uma das opções do menu.");
                     break;
@@ -63,5 +85,27 @@ internal static class Program
 
         }
 
+    }
+
+    private static void Exibir(List<Participacao> participacoes)
+    {
+        if (participacoes.Count == 0)
+        {
+            Console.WriteLine("Nenhuma participação encontrada.");
+            return;
+        }
+
+        Console.WriteLine("\nID | Usuário | Sessão | Pontos | Status | Entrada");
+
+        foreach (var participacao in participacoes)
+        {
+            Console.WriteLine(
+                $"{participacao.Id} | " +
+                $"{participacao.NomeUsuario} | " +
+                $"{participacao.NomeSessao} | " +
+                $"{participacao.PontuacaoObtida} | " +
+                $"{participacao.StatusParticipacao} | " +
+                $"{participacao.DataHoraEntrada:dd/MM/yyyy HH:mm zzz}");
+        }
     }
 }
