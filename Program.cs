@@ -11,11 +11,12 @@ internal static class Program
         var service = new ParticipacaoService(new ParticipacaoRepository(caminho));
 
         Console.WriteLine("DAMY — Participações em jogos educativos sobre tecnologia nuclear");
+        Console.WriteLine("Cadastre novas participações e seja desafiado contra outros jogadores em conhecimentos sobre tecnologia nuclear!");
         while (true)
         {
             Console.WriteLine("\n1 - Cadastrar participação");
             Console.WriteLine("2 - Listar todas as participações");
-            Console.WriteLine("3 - Buscar por ID do jogador");
+            Console.WriteLine("3 - Buscar por nome do usuário");
             Console.WriteLine("0 - Sair");
             Console.Write("Opção: ");
             var opcao = Console.ReadLine();
@@ -25,64 +26,79 @@ internal static class Program
                 Console.WriteLine("Até a próxima!");
                 return;
             }
-
-            switch (opcao.Trim())
+            try
             {
-                case "1":
-                    string nomeUsuario;
+                switch (opcao.Trim())
+                {
+                    case "1":
+                        string nomeUsuario;
 
-                    do
-                    {
-                        Console.Write("Nome do usuário: ");
-                        nomeUsuario = Console.ReadLine();
-
-                        if (string.IsNullOrWhiteSpace(nomeUsuario))
-                            Console.WriteLine("Informe o nome do usuário.");
-                    }
-                    while (string.IsNullOrWhiteSpace(nomeUsuario));
-
-                    string nomeSessao;
-
-                    do
-                    {
-                        Console.Write("Nome da sessão educativa: ");
-                        nomeSessao = Console.ReadLine();
-
-                        if (string.IsNullOrWhiteSpace(nomeSessao))
-                            Console.WriteLine("Informe o nome da sessão.");
-                    }
-                    while (string.IsNullOrWhiteSpace(nomeSessao));
-
-                    var nova = service.Cadastrar(nomeUsuario.Trim(), nomeSessao.Trim());
-
-                    Console.WriteLine($"Participação {nova.Id} cadastrada com zero pontos.");
-                    break;
-                case "2":
-                    Exibir(service.Listar());
-                    break;
-                case "3":
-                    string nomeBusca;
-
-                    do
-                    {
-                        Console.Write("Nome do usuário: ");
-                        nomeBusca = Console.ReadLine();
-
-                        if (string.IsNullOrWhiteSpace(nomeBusca))
+                        do
                         {
-                            Console.WriteLine("Informe o nome do usuário.");
+                            Console.Write("Nome do usuário: ");
+                            nomeUsuario = Console.ReadLine();
+
+                            if (string.IsNullOrWhiteSpace(nomeUsuario))
+                                Console.WriteLine("Informe o nome do usuário.");
                         }
-                    }
-                    while (string.IsNullOrWhiteSpace(nomeBusca));
+                        while (string.IsNullOrWhiteSpace(nomeUsuario));
 
-                    var participacoes = service.BuscarPorUsuario(nomeBusca.Trim());
-                    Exibir(participacoes);
-                    break;
-                default:
-                    Console.WriteLine("Opção inválida. Escolha uma das opções do menu.");
-                    break;
+                        string nomeSessao;
+
+                        do
+                        {
+                            Console.Write("Nome da sessão educativa: ");
+                            nomeSessao = Console.ReadLine();
+
+                            if (string.IsNullOrWhiteSpace(nomeSessao))
+                                Console.WriteLine("Informe o nome da sessão.");
+                        }
+                        while (string.IsNullOrWhiteSpace(nomeSessao));
+
+                        var nova = service.Cadastrar(nomeUsuario.Trim(), nomeSessao.Trim());
+
+                        Console.WriteLine($"Participação {nova.Id} cadastrada com zero pontos.");
+                        break;
+                    case "2":
+                        Exibir(service.Listar());
+                        break;
+                    case "3":
+                        string nomeBusca;
+
+                        do
+                        {
+                            Console.Write("Nome do usuário: ");
+                            nomeBusca = Console.ReadLine();
+
+                            if (string.IsNullOrWhiteSpace(nomeBusca))
+                            {
+                                Console.WriteLine("Informe o nome do usuário.");
+                            }
+                        }
+                        while (string.IsNullOrWhiteSpace(nomeBusca));
+
+                        var participacoes = service.BuscarPorUsuario(nomeBusca.Trim());
+                        Exibir(participacoes);
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida. Escolha uma das opções do menu.");
+                        break;
+                }
             }
-
+            catch (System.Text.Json.JsonException)
+            {
+                Console.WriteLine(
+                    "O arquivo JSON está inválido. Verifique o arquivo de dados.");
+            }
+            catch (IOException)
+            {
+                Console.WriteLine(
+                    "Não foi possível ler ou salvar o arquivo de dados.");
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine($"Dados inválidos: {ex.Message}");
+            }
         }
 
     }
