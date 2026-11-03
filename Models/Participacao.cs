@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace ProjetoDamyNuclearEdu.Models
+﻿namespace ProjetoDamyNuclearEdu.Models
 {
     public class Participacao
     {
